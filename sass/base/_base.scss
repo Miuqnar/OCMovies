@@ -1,0 +1,20 @@
+@font-face{
+    font-family: 'Roboto', sans-serif;
+    src: url('../../fonts/Roboto/Roboto-Regular.ttf'),
+        url('../../fonts/Roboto/Roboto-Bold.ttf'),
+        url('../../fonts/Roboto/Roboto-Italic.ttf'),
+        url('../../fonts/Roboto/Roboto-Light.ttf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: $font-body;
+    max-width: 1304px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 2px 10px 8px#eaeaea;
+}

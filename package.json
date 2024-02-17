@@ -1,0 +1,13 @@
+{
+  "name": "juststreamit_p6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.scss",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./css/style.css",
+    "prefix": "postcss ./css/style.css --use autoprefixer -d ./css/prefixer/"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserslist": "last 5 versions"
+}
