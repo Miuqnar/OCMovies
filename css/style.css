@@ -1,0 +1,132 @@
+@font-face {
+  font-family: "Roboto", sans-serif;
+  src: url("../../fonts/Roboto/Roboto-Regular.ttf"), url("../../fonts/Roboto/Roboto-Bold.ttf"), url("../../fonts/Roboto/Roboto-Italic.ttf"), url("../../fonts/Roboto/Roboto-Light.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  max-width: 1304px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 2px 2px 10px 8px #eaeaea;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  line-height: 90px;
+  background-color: #727d89;
+  box-shadow: 1px 5px 10px #b4acac;
+}
+.header-logo {
+  color: #fff;
+  font-size: 20px;
+}
+.header-nav {
+  font-family: Roboto;
+}
+.header-nav_container {
+  display: flex;
+  list-style: none;
+}
+.header-nav_container--items {
+  margin: 0 32px;
+}
+.header-nav_container--items_link {
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-size: 17px;
+}
+
+.footer {
+  padding: 5rem;
+}
+
+.main .mainTitle {
+  text-align: center;
+  margin: 4rem;
+  font-size: 25px;
+}
+.main .category {
+  text-align: center;
+  margin: 4rem;
+  font-size: 20px;
+}
+.main .bestMovie {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.main .bestMovie .leftArrow {
+  display: flex;
+  align-self: center;
+  font-size: 2rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.main .bestMovie .rightArrow {
+  display: flex;
+  align-self: center;
+  font-size: 2rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.main .bestMovie-item {
+  width: 200px;
+  height: 200px;
+  margin: 0 12px;
+  border: 2px solid #000;
+}
+
+.section {
+  margin-top: 2rem;
+  border: 2px solid #000;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+.section-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+.section-container_videoTitle {
+  padding-left: 20px;
+}
+.section-container_videoTitle--item {
+  font-weight: 600;
+}
+.section-container .playContainer {
+  text-align: center;
+}
+.section-container .playContainer-item {
+  border: none;
+  background-color: red;
+  margin-top: 10px;
+  padding: 4px 15px;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+.section-container_imageTitle {
+  text-align: center;
+  margin: 0 auto;
+}
+.section-container_imageTitle--item {
+  padding-right: 10rem;
+}
+
+/*# sourceMappingURL=style.css.map */

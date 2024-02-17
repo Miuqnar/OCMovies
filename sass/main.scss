@@ -1,0 +1,21 @@
+// utils
+@import 
+   "./utils/mixins",
+   "./utils/variables";
+
+// base
+@import "./base/base",
+        "./base/animations";
+
+// composants
+@import "./composants/buttons";
+
+// layouts
+@import 
+   "./layouts/header",
+   "./layouts/footer";
+
+// pages
+@import
+   "./pages/index",
+   "./pages/page_images"
