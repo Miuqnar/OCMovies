@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,79 +11,100 @@
         <div class="header-logo">JustStreamIt</div>
         <nav class="header-nav">
             <ul class="header-nav_container">
-                <li class="header-nav_container--items"><a class="header-nav_container--items_link" href="">Accueil</a></li>
-                <li class="header-nav_container--items"><a class="header-nav_container--items_link" href="">Catégories</a></li>
+                <li class="header-nav_container--items"><a class="header-nav_container--items_link" href="#">Accueil</a></li>
+                <li class="header-nav_container--items"><a class="header-nav_container--items_link" href="#">Catégories</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="section">
-        <div class="section-container">
-            <div class="section-container_videoTitle">
-                <p class="section-container_videoTitle--item">Titre de la video</p>
-                <div class="playContainer">
-                    <button class="playContainer-item" type="button">Play</button>
-                </div>
-            </div>
-            <div class="section-container_imageTitle">
-                <!-- <input type="file" name="" class="section-container_imageTitle--item" placeholder="Image de la vidéo"> -->
-                <!-- <p class="section-container_imageTitle--item">Image de la vidéo</p> -->
-                Image de la vidéo
-                <img class="section-container_imageTitle--item" id="image" src="" alt="">
+    <section>
+        <div class="section">
+            <div class="section-container">
+                <figure>
+                    <img class="section-container_image" id="image" alt="Meilleure image">
+
+                    <figcaption>
+                        <div class="section-container_title">
+                            <h2 class="section-container_title--h2">Titre du Film</h2>
+                            <p id="filmTitle"></p>
+                            <button class="section-container--button" id="detailsButton">Voir Détails</button>
+                        </div>
+
+                        <div id="modal" class="modal">
+                            <div class="modal-content">
+                            <span class="close" id="closeBtn">&times;</span>
+                            <!-- <p id="modalContent" class="modal-text"></p> -->
+
+                            <div class="movieDetails">
+                                <p class="movieDetails-info" >Résumé du Film</p>
+                                <p class="movieDetails-info" >Directeurs: <span class="spanMovieDetails" id="directors"></span></p>
+                                <p class="movieDetails-info" >Acteurs: <span class="spanMovieDetails" id="actors"></span></p>
+                                <p class="movieDetails-info" >Écrivains: <span class="spanMovieDetails" id="writers"></span></p>
+                                <p class="movieDetails-info" >Genres: <span class="spanMovieDetails" id="genres"></span></p>
+                            </div>  
+
+                            </div>
+                        </div>
+
+                    </figcaption>
+                  </figure>
             </div>
         </div>
-    </section>
 
+        
+    </section>
 
     <main class="main">
         <h1 class="mainTitle">Filmes les mieux notés</h1>
+        <section>
+            <div class="bestMovie">
+                <button type="button" class="leftArrow" aria-label="Navegar para a esquerda">&#8592;</button>
+                <div class="bestMovie-item"></div>
+                <div class="bestMovie-item"></div>
+                <div class="bestMovie-item"></div>
+                <div class="bestMovie-item"></div>
+                <button type="button" class="rightArrow" aria-label="Navegar para a direita">&#8594;</button>
+            </div>
+        </section>
 
-        <div class="bestMovie">
-            <button type="button" class="leftArrow">&#8592;</button>
-            <div class="bestMovie-item"></div>
-            <div class="bestMovie-item"></div>
-            <div class="bestMovie-item"></div>
-            <div class="bestMovie-item"></div>
-            <button type="button" class="rightArrow">&#8594;</button>
-        </div>
-        
-        <h2 class="category">Catégorie 1</h2>
+        <section>
+            <h2 class="category">Catégorie 1</h2>
+            <div class="bestMovie">
+                <button type="button" class="leftArrow" aria-label="Navegar para a esquerda">&#8592;</button>
+                <div class="bestMovie-item"></div>
+                <div class="bestMovie-item"></div>
+                <div class="bestMovie-item"></div>
+                <div class="bestMovie-item"></div>
+                <button type="button" class="rightArrow" aria-label="Navegar para a direita">&#8594;</button>
+            </div>
+        </section>
 
-        <div class="bestMovie">
-            <button type="button" class="leftArrow">&#8592;</button>
-            <div class="bestMovie-item"></div>
-            <div class="bestMovie-item"></div>
-            <div class="bestMovie-item"></div>
-            <div class="bestMovie-item"></div>
-            <button type="button" class="rightArrow">&#8594;</button>
-        </div>
+        <section>
+            <h2 class="category">Catégorie 2</h2>
+            <div class="bestMovie">
+                <button type="button" class="leftArrow" aria-label="Navegar para a esquerda">&#8592;</button>
+                <div class="bestMovie-item"></div>
+                <div class="bestMovie-item"></div>
+                <div class="bestMovie-item"></div>
+                <div class="bestMovie-item"></div>
+                <button type="button" class="rightArrow" aria-label="Navegar para a direita">&#8594;</button>
+            </div>
+        </section>
 
-        <h2 class="category">Catégorie 2</h2>
-
-        <div class="bestMovie">
-            <button type="button" class="leftArrow">&#8592;</button>
-            <div class="bestMovie-item"></div>
-            <div class="bestMovie-item"></div>
-            <div class="bestMovie-item"></div>
-            <div class="bestMovie-item"></div>
-            <button type="button" class="rightArrow">&#8594;</button>
-        </div>
-
-        <h2 class="category">Catégorie 3</h2>
-
-        <div class="bestMovie">
-            <button type="button" class="leftArrow">&#8592;</button>
-            <div class="bestMovie-item"></div>
-            <div class="bestMovie-item"></div>
-            <div class="bestMovie-item"></div>
-            <div class="bestMovie-item"></div>
-            <button type="button" class="rightArrow">&#8594;</button>
-        </div>
-        
+        <section>
+            <h2 class="category">Catégorie 3</h2>
+            <div class="bestMovie">
+                <button type="button" class="leftArrow" aria-label="Navegar para a esquerda">&#8592;</button>
+                <div class="bestMovie-item"></div>
+                <div class="bestMovie-item"></div>
+                <div class="bestMovie-item"></div>
+                <div class="bestMovie-item"></div>
+                <button type="button" class="rightArrow" aria-label="Navegar para a direita">&#8594;</button>
+            </div>
+        </section>
     </main>
 
     <footer class="footer"></footer>
     <script src="js/index.js"></script>
-    
 </body>
 </html>
