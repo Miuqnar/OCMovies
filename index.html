@@ -21,7 +21,7 @@
         <div class="section">
             <div class="section-container">
                 <figure>
-                    <img class="section-container_image" id="image" alt="Meilleure image">
+                    <img class="section-container_image" id="image" src="#" alt="Meilleure image">
 
                     <figcaption>
                         <div class="section-container_title">
@@ -30,17 +30,22 @@
                             <button class="section-container--button" id="detailsButton">Voir Détails</button>
                         </div>
 
-                        <div id="modal" class="modal">
+                        <div id="openModal" class="modal">
                             <div class="modal-content">
-                            <span class="close" id="closeBtn">&times;</span>
-                            <!-- <p id="modalContent" class="modal-text"></p> -->
+                            <span class="close" id="closeModal">&times;</span>
 
                             <div class="movieDetails">
-                                <p class="movieDetails-info" >Résumé du Film</p>
-                                <p class="movieDetails-info" >Directeurs: <span class="spanMovieDetails" id="directors"></span></p>
-                                <p class="movieDetails-info" >Acteurs: <span class="spanMovieDetails" id="actors"></span></p>
-                                <p class="movieDetails-info" >Écrivains: <span class="spanMovieDetails" id="writers"></span></p>
-                                <p class="movieDetails-info" >Genres: <span class="spanMovieDetails" id="genres"></span></p>
+                                <p class="movieDetails-sumary" >Résumé du Film</p>
+                                <p class="movieDetails-info" >Titre du film: <span class="spanMovieDetails" id="detailFilm_title"></span></p>
+                                <p class="movieDetails-info" >Genre: <span class="spanMovieDetails" id="detailFilm_genre"></span></p>
+                                <p class="movieDetails-info" >Date de sortie: <span class="spanMovieDetails" id="detailFilm_date"></span></p>
+                                <p class="movieDetails-info" >Score: <span class="spanMovieDetails" id="detailFilm_score"></span></p>
+                                <p class="movieDetails-info" >Réalisateur: <span class="spanMovieDetails" id="detailFilm_director"></span></p>
+                                <p class="movieDetails-info" >Durée: <span class="spanMovieDetails" id="detailFilm_time"></span></p>
+                                <p class="movieDetails-info" >Pays d’origine: <span class="spanMovieDetails" id="detailFilm_origin"></span></p>
+                                <p class="movieDetails-info" >Résultat au Box Office: <span class="spanMovieDetails" id="detailFilm_result"></span></p>
+                                <p class="movieDetails-info" >Résumé du film: <span class="spanMovieDetails" id="detailFilm_summary"></span></p>
+                                <p class="movieDetails-info" >Acteurs: <span class="spanMovieDetails" id="detailFilm_actor"></span></p>
                             </div>  
 
                             </div>
@@ -55,56 +60,49 @@
     </section>
 
     <main class="main">
-        <h1 class="mainTitle">Filmes les mieux notés</h1>
+        
         <section>
-            <div class="bestMovie">
-                <button type="button" class="leftArrow" aria-label="Navegar para a esquerda">&#8592;</button>
-                <div class="bestMovie-item"></div>
-                <div class="bestMovie-item"></div>
-                <div class="bestMovie-item"></div>
-                <div class="bestMovie-item"></div>
-                <button type="button" class="rightArrow" aria-label="Navegar para a direita">&#8594;</button>
+            <h1 class="mainTitle">Filmes les mieux notés</h1>
+            <div class="bestMovie" id="bestMovie">
+                <button type="button" class="leftArrow" aria-label="Naviguer vers la gauche">&#9664;</button>
+                <div class="slider-container"></div>
+                <button type="button" class="rightArrow" aria-label="Naviguer vers la droite">&#9654;</button>
+            </div>
+        </section>
+        
+
+        <section>
+            <h2 class="category">Comédie</h2>
+            <div class="bestMovie" id="category1">
+                <button type="button" class="leftArrow" aria-label="Naviguer vers la gauche">&#9664;</button>
+                <div class="slider-container"></div>
+                <button type="button" class="rightArrow" aria-label="Naviguer vers la droite">&#9654;</button>
             </div>
         </section>
 
         <section>
-            <h2 class="category">Catégorie 1</h2>
-            <div class="bestMovie">
-                <button type="button" class="leftArrow" aria-label="Navegar para a esquerda">&#8592;</button>
-                <div class="bestMovie-item"></div>
-                <div class="bestMovie-item"></div>
-                <div class="bestMovie-item"></div>
-                <div class="bestMovie-item"></div>
-                <button type="button" class="rightArrow" aria-label="Navegar para a direita">&#8594;</button>
+            <h2 class="category">Drame</h2>
+            <div class="bestMovie" id="category2">
+                <button type="button" class="leftArrow" aria-label="Naviguer vers la gauche">&#9664;</button>
+                <div class="slider-container"></div>
+                <button type="button" class="rightArrow" aria-label="Naviguer vers la droite">&#9654;</button>
             </div>
         </section>
 
         <section>
-            <h2 class="category">Catégorie 2</h2>
-            <div class="bestMovie">
-                <button type="button" class="leftArrow" aria-label="Navegar para a esquerda">&#8592;</button>
-                <div class="bestMovie-item"></div>
-                <div class="bestMovie-item"></div>
-                <div class="bestMovie-item"></div>
-                <div class="bestMovie-item"></div>
-                <button type="button" class="rightArrow" aria-label="Navegar para a direita">&#8594;</button>
-            </div>
-        </section>
-
-        <section>
-            <h2 class="category">Catégorie 3</h2>
-            <div class="bestMovie">
-                <button type="button" class="leftArrow" aria-label="Navegar para a esquerda">&#8592;</button>
-                <div class="bestMovie-item"></div>
-                <div class="bestMovie-item"></div>
-                <div class="bestMovie-item"></div>
-                <div class="bestMovie-item"></div>
-                <button type="button" class="rightArrow" aria-label="Navegar para a direita">&#8594;</button>
+            <h2 class="category">Thriller</h2>
+            <div class="bestMovie" id="category3">
+                <button type="button" class="leftArrow" aria-label="Naviguer vers la gauche">&#9664;</button>
+                <div class="slider-container"></div>
+                <button type="button" class="rightArrow" aria-label="Naviguer vers la droite">&#9654;</button>
             </div>
         </section>
     </main>
 
     <footer class="footer"></footer>
+    <script src="js/api.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/beste_film.js"></script>
 </body>
 </html>

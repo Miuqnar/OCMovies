@@ -54,19 +54,66 @@ body {
   padding: 5rem;
 }
 
+.main .mainTitle,
+.main .category {
+  text-align: center;
+  margin: 4rem;
+  font-size: 20px;
+}
+.main .bestMovie {
+  display: flex;
+  align-items: center;
+  max-width: 1104px;
+  margin: 0 auto;
+}
+.main .bestMovie .slider-container {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  transition: transform 0.5s ease;
+}
+.main .bestMovie .slider-container .Best_images {
+  margin: 0 10px;
+  width: 100%;
+  height: auto;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  transform: scale(1);
+  transition: transform 200ms;
+  object-fit: contain;
+  cursor: pointer;
+}
+.main .bestMovie .slider-container .Best_images:hover {
+  transform: scale(0.98);
+}
+.main .bestMovie .leftArrow,
+.main .bestMovie .rightArrow {
+  display: flex;
+  align-self: center;
+  font-size: 2rem;
+  margin: 0 20px;
+  color: #fff;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.main .bestMovie .leftArrow:hover,
+.main .bestMovie .rightArrow:hover {
+  color: #ccc;
+}
+
 .section {
   margin-top: 2rem;
 }
 .section-container {
-  width: 100%;
-  max-width: 1304px;
+  max-width: 960px;
   margin: 0 auto;
 }
 .section-container_image {
   width: 100%;
-  max-width: 1304px;
-  height: 500px;
-  object-fit: fill;
+  height: 300px;
+  object-fit: contain;
 }
 .section-container_title {
   text-align: center;
@@ -105,15 +152,12 @@ body {
 .section-container .modal-content {
   background-color: #111;
   margin: 5% auto;
-  padding: 20px;
+  padding: 18px;
   border: 1px solid #888;
   width: 80%;
-  max-width: 40%;
+  max-width: 50%;
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-.section-container .modal-text {
-  font-size: 18px;
 }
 .section-container .modal .close {
   color: #aaa;
@@ -127,42 +171,21 @@ body {
 .section-container .modal .close:focus {
   color: #fff;
 }
-.section-container .modal .movieDetails-info {
+.section-container .modal .movieDetails {
+  font-family: "Roboto", sans-serif;
+}
+.section-container .modal .movieDetails-sumary {
+  text-align: center;
   font-size: 18px;
-  font-weight: 600;
-  padding: 10px 50px;
+}
+.section-container .modal .movieDetails-info {
+  font-size: 16px;
+  padding: 10px 0px;
+  color: #ececec;
 }
 .section-container .modal .movieDetails-info .spanMovieDetails {
-  color: rgb(121, 121, 128);
+  color: rgb(153, 153, 158);
   font-weight: 100;
-}
-
-.main .mainTitle,
-.main .category {
-  text-align: center;
-  margin: 4rem;
-  font-size: 20px;
-}
-.main .bestMovie {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-}
-.main .bestMovie .leftArrow,
-.main .bestMovie .rightArrow {
-  display: flex;
-  align-self: center;
-  font-size: 2rem;
-  color: #fff;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-.main .bestMovie-item {
-  width: 200px;
-  height: 200px;
-  margin: 0 12px;
-  border: 2px solid #fff;
 }
 
 /*# sourceMappingURL=style.css.map */
