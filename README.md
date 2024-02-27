@@ -1,5 +1,5 @@
 
-## Développement d'un site web permettant aux abonnés de visionner des films intéressants en temps réel : 
+## Développement d'un site web permettant aux abonnés de visionner des films intéressants en temps réel
 
 
 ## Technologies utilisées:
