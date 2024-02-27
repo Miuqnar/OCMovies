@@ -1,90 +1,85 @@
-const url = "http://localhost:8000/api/v1/titles/"
-
-function showModal(){
-    const modalElement = document.querySelector("#modal")
-    // const modalContentElement = document.querySelector("#modalContent")
-
-    // modalContentElement.textContent = content;
-    // console.log(modalContentElement)
-    modalElement.style.display = 'block';
-}
-
-function hideModal(){
-    const modalElement = document.querySelector("#modal")
-    modalElement.style.display = 'none';
-}
-
-function setupModalListeners(bestImdbUrl){
-    const detailsButton = document.querySelector("#detailsButton")
-    const closeButton = document.querySelector("#closeBtn")
-    const modalElement = document.querySelector("#modal")
 
 
-    
-    let directorsSpan = document.querySelector("#directors");
-    let actorsFilm = document.querySelector("#actors")
-    let writersFilm = document.querySelector("#writers")
-    let genresFilm = document.querySelector("#genres")
+
+function initialize() {
+     const bestMovies = document.querySelector("#bestMovie");
+     const category1 = document.querySelector("#category1");
+     const category2 = document.querySelector("#category2");
+     const category3 = document.querySelector("#category3");
+
+     fetchAnDisplayMovies(bestMovies, bestMoviesUrl);
+     fetchAnDisplayMovies(category1, category1Url);
+     fetchAnDisplayMovies(category2, category2Url);
+     fetchAnDisplayMovies(category3, category3Url);
+ }
 
 
-    detailsButton.addEventListener('click', () => {
-        // const content = `Résumé du Film : ${bestImdbUrl.title}\n` +
-        //                 `Directeurs: ${bestImdbUrl.directors}\n` +
-        //                 `Acteurs: ${bestImdbUrl.actors}\n` +
-        //                 `Writers: ${bestImdbUrl.writers}\n` +
-        //                 `Genres: ${bestImdbUrl.genres}`;
-        
-        directorsSpan.textContent = bestImdbUrl.directors;
-        actorsFilm.textContent = bestImdbUrl.directors;
-        writersFilm.textContent = bestImdbUrl.directors;
-        genresFilm.textContent = bestImdbUrl.directors;
+ function eventInfoMovie(image, movieDetails){
+     // let moviesProperty = setupModalListeners(movieDetails)
+     // // console.log(moviesProperty)
 
-        showModal();
+     // const filmDetails = {
+     //      "#detailFilm_title": "title",
+     //      "#detailFilm_genre": "genres",
+     //      "#detailFilm_date": "date_published",
+     //      "#detailFilm_score": "rated",
+     //      "#detailFilm_director": "directors",
+     //      "#detailFilm_time": "duration",
+     //      "#detailFilm_origin": "countries",
+     //      "#detailFilm_result": "reviews_from_users",
+     //      "#detailFilm_summary": "description",
+     //      "#detailFilm_actor": "actors"
+     //  }
+      
+     image.addEventListener('click', () => {
+          Object.entries(createFilmDetailsObject()).forEach(([selector, property]) => {
+               const select = document.querySelector(selector);
+               // console.log(select)
+               select.textContent = movieDetails[property];
+          });
+          showModal();
+      });
+ }
 
-       
+async function fetchAnDisplayMovies(container, url){
+     
+     const response = await fetch(url);
+     const data = await response.json();
+     const movies = data.results
 
-    });
-    closeButton.addEventListener('click', hideModal);
-    window.addEventListener('click', (event) => {
-        if(event.target === modalElement){
-            hideModal()
-        }
-    })
-}
+     scrollMovies(container)
+   
+     // const bestMovies = document.querySelector("#bestMovie");
+     for (let i = (container === document.querySelector("#bestMovie")) ? 1 : 0; i < movies.length; i++) {
+          // Initialise la variable i à 1 si le conteneur actuel est égal à bestMovies, sinon l'initialise à 0.
 
-async function getBestImdbMovieImage(){
+          const image = document.createElement('img');
+          image.classList.add("Best_images")
+          image.src = movies[i].image_url
+          container.querySelector(".slider-container").appendChild(image);
 
-    const response = await fetch(url)
-    if(!response.ok){
-        throw new Error("ERREUR: impossible obtenir les donnes des films")
-    }
-    const data = await response.json()
-    const results = data.results
-    console.log(results)
-
-    // trouver le filme avec le melleur score
-    let bestImdbScore = -1
-    let bestImdbUrl = ""
-
-    results.forEach(movie => {
-        const imdbScore = parseFloat(movie.imdb_score)
-        if (imdbScore > bestImdbScore){
-            bestImdbScore = imdbScore;
-            bestImdbUrl = movie;
-        }
-    })
-    if(bestImdbUrl){
-        const imageElment = document.querySelector("#image")
-        const titleElement = document.querySelector("#filmTitle")
-
-        imageElment.src = bestImdbUrl.image_url
-        titleElement.textContent = bestImdbUrl.title
-        setupModalListeners(bestImdbUrl);
-    }else{
-        console.error('Filme non trouvé');
-    }
+          const detailFilm = await fetch(movies[i].url).then(response => response.json())
+          eventInfoMovie(image, detailFilm)
+          
+     }
     
 }
-getBestImdbMovieImage();
 
+function scrollMovies(container) {
+     
+     const leftArrow = container.querySelector(".leftArrow");
+     const rightArrow = container.querySelector(".rightArrow");
+     const sliderContainer = container.querySelector(".slider-container")
+     
+     if (leftArrow && rightArrow && sliderContainer) {
+          rightArrow.addEventListener('click', () => {
+               sliderContainer.scrollLeft += 240;
+          });
+          leftArrow.addEventListener('click', () => {
+               sliderContainer.scrollLeft -= 240;
+          });
+     }
+ }
+
+initialize()
 
