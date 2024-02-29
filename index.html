@@ -6,18 +6,19 @@
     <link rel="stylesheet" href="css/style.css">
     <title>JustStreamIt</title>
 </head>
+
 <body>
     <header class="header">
         <div class="header-logo">JustStreamIt</div>
         <nav class="header-nav">
             <ul class="header-nav_container">
-                <li class="header-nav_container--items"><a class="header-nav_container--items_link" href="#">Accueil</a></li>
-                <li class="header-nav_container--items"><a class="header-nav_container--items_link" href="#">Catégories</a></li>
+                <li class="header-nav_container--items"><a class="header-nav_container--items_link" href="#bestFilm">Accueil</a></li>
+                <li class="header-nav_container--items"><a class="header-nav_container--items_link" href="#categ">Catégories</a></li>
             </ul>
         </nav>
     </header>
 
-    <section>
+    <section id="bestFilm">
         <div class="section">
             <div class="section-container">
                 <figure>
@@ -35,17 +36,20 @@
                             <span class="close" id="closeModal">&times;</span>
 
                             <div class="movieDetails">
-                                <p class="movieDetails-sumary" >Résumé du Film</p>
-                                <p class="movieDetails-info" >Titre du film: <span class="spanMovieDetails" id="detailFilm_title"></span></p>
-                                <p class="movieDetails-info" >Genre: <span class="spanMovieDetails" id="detailFilm_genre"></span></p>
-                                <p class="movieDetails-info" >Date de sortie: <span class="spanMovieDetails" id="detailFilm_date"></span></p>
-                                <p class="movieDetails-info" >Score: <span class="spanMovieDetails" id="detailFilm_score"></span></p>
-                                <p class="movieDetails-info" >Réalisateur: <span class="spanMovieDetails" id="detailFilm_director"></span></p>
-                                <p class="movieDetails-info" >Durée: <span class="spanMovieDetails" id="detailFilm_time"></span></p>
-                                <p class="movieDetails-info" >Pays d’origine: <span class="spanMovieDetails" id="detailFilm_origin"></span></p>
-                                <p class="movieDetails-info" >Résultat au Box Office: <span class="spanMovieDetails" id="detailFilm_result"></span></p>
-                                <p class="movieDetails-info" >Résumé du film: <span class="spanMovieDetails" id="detailFilm_summary"></span></p>
-                                <p class="movieDetails-info" >Acteurs: <span class="spanMovieDetails" id="detailFilm_actor"></span></p>
+                                <img id="detailFilm_image" src="#" alt="images">
+                                <div class="movieDetails-items">
+                                    <p class="movieDetails-sumary" >Résumé du Film</p>
+                                    <p>Titre du film: <span id="detailFilm_title"></span></p>
+                                    <p>Genre: <span id="detailFilm_genre"></span></p>
+                                    <p>Date de sortie: <span id="detailFilm_date"></span></p>
+                                    <p>Score: <span id="detailFilm_score"></span></p>
+                                    <p>Réalisateur: <span id="detailFilm_director"></span></p>
+                                    <p>Durée: <span id="detailFilm_time"></span></p>
+                                    <p>Pays d’origine: <span id="detailFilm_origin"></span></p>
+                                    <p>Résultat au Box Office: <span id="detailFilm_result"></span></p>
+                                    <p>Résumé du film: <span id="detailFilm_summary"></span></p>
+                                    <p>Acteurs: <span id="detailFilm_actor"></span></p>
+                                </div>
                             </div>  
 
                             </div>
@@ -59,7 +63,7 @@
         
     </section>
 
-    <main class="main">
+    <main class="main" id="categ">
         
         <section>
             <h1 class="mainTitle">Filmes les mieux notés</h1>

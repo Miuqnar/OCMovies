@@ -1,0 +1,22 @@
+@mixin only-mobile {
+    @media screen and (max-width: 540px) {
+        .header-logo{
+            font-size: 1.3em;
+        }
+        .header-nav_container--items{
+            margin: 0 18px;
+        }
+        .header-nav_container--items_link{
+            font-size: .9em;
+        }
+        ///// detail moivie modal /////
+        
+        .movieDetails{
+            flex-direction: column;
+        }
+        ////// modal ///////
+        .modal-content{
+            max-width: 100% !important;
+        }
+    }
+}

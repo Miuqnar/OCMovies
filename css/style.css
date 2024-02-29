@@ -7,6 +7,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: #141414;
@@ -50,6 +54,23 @@ body {
   color: #e50914;
 }
 
+@media screen and (max-width: 540px) {
+  .header-logo {
+    font-size: 1.3em;
+  }
+  .header-nav_container--items {
+    margin: 0 18px;
+  }
+  .header-nav_container--items_link {
+    font-size: 0.9em;
+  }
+  .movieDetails {
+    flex-direction: column;
+  }
+  .modal-content {
+    max-width: 100% !important;
+  }
+}
 .footer {
   padding: 5rem;
 }
@@ -173,17 +194,29 @@ body {
 }
 .section-container .modal .movieDetails {
   font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+.section-container .modal .movieDetails-items {
+  padding-left: 20px;
 }
 .section-container .modal .movieDetails-sumary {
   text-align: center;
   font-size: 18px;
 }
-.section-container .modal .movieDetails-info {
+.section-container .modal .movieDetails img {
+  width: 100%;
+  max-height: 20%;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  object-fit: contain;
+}
+.section-container .modal .movieDetails p {
   font-size: 16px;
   padding: 10px 0px;
   color: #ececec;
 }
-.section-container .modal .movieDetails-info .spanMovieDetails {
+.section-container .modal .movieDetails p span {
   color: rgb(153, 153, 158);
   font-weight: 100;
 }

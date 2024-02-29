@@ -73,15 +73,27 @@
 
             .movieDetails{
                 font-family: $font-body;
+                display: flex;
+                justify-content: center;
+                &-items{
+                    padding-left: 20px;
+                }
                 &-sumary{
                     text-align: center;
                     font-size: 18px;
                 }
-                &-info{
+                img{
+                    width: 100%;
+                    max-height: 20%;
+                    border: 1px solid #fff;
+                    border-radius: 10px;
+                    object-fit: contain;
+                }
+                p{
                     font-size: 16px;
                     padding: 10px 0px;
                     color: #ececec;
-                    .spanMovieDetails{
+                    span{
                         color: rgb(153, 153, 158);
                         font-weight: 100;
                     }
