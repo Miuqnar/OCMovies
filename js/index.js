@@ -1,4 +1,43 @@
+async function fetchMovies(category){
+     const reponse = await fetch(filmsUrl + category)
+     const movies = await reponse.json()
+     const data = movies.results
 
+    
+     const detailFilm = {
+          movies: data,
+          moviesCategory: []
+     }
+     for (let i = 0; i < data.length; i++){ 
+
+          let movieData = await fetch(data[i].url).
+          then(response => response.json()) 
+          detailFilm.moviesCategory.push(movieData)
+     }
+
+     return detailFilm
+}
+
+function bestFilm(data){
+     const imageElment = document.querySelector("#image")
+     const titleElement = document.querySelector("#filmTitle")
+
+     imageElment.src = data.image_url
+     titleElement.textContent = data.title
+}
+
+
+ function eventInfoMovie(image, movieDetails){
+      
+     image.addEventListener('click', () => {
+          Object.entries(createFilmDetailsObject()).forEach(([selector, property]) => {
+               const select = document.querySelector(selector);
+               select.src = movieDetails[property];
+               select.textContent = movieDetails[property];
+          });
+          showModal();
+      });
+ }
 
 
 function initialize() {
@@ -7,62 +46,37 @@ function initialize() {
      const category2 = document.querySelector("#category2");
      const category3 = document.querySelector("#category3");
 
-     fetchAnDisplayMovies(bestMovies, bestMoviesUrl);
-     fetchAnDisplayMovies(category1, category1Url);
-     fetchAnDisplayMovies(category2, category2Url);
-     fetchAnDisplayMovies(category3, category3Url);
- }
-
-
- function eventInfoMovie(image, movieDetails){
-     // let moviesProperty = setupModalListeners(movieDetails)
-     // // console.log(moviesProperty)
-
-     // const filmDetails = {
-     //      "#detailFilm_title": "title",
-     //      "#detailFilm_genre": "genres",
-     //      "#detailFilm_date": "date_published",
-     //      "#detailFilm_score": "rated",
-     //      "#detailFilm_director": "directors",
-     //      "#detailFilm_time": "duration",
-     //      "#detailFilm_origin": "countries",
-     //      "#detailFilm_result": "reviews_from_users",
-     //      "#detailFilm_summary": "description",
-     //      "#detailFilm_actor": "actors"
-     //  }
-      
-     image.addEventListener('click', () => {
-          Object.entries(createFilmDetailsObject()).forEach(([selector, property]) => {
-               const select = document.querySelector(selector);
-               // console.log(select)
-               select.textContent = movieDetails[property];
-          });
-          showModal();
-      });
- }
-
-async function fetchAnDisplayMovies(container, url){
+     fetchMovies(bestMoviesUrl).then(data => {
+          bestFilm(data.movies[0])
+          DisplayMovies(bestMovies, data.moviesCategory.slice(1))
+          setupModalListeners(data.moviesCategory[0])
+     })
      
-     const response = await fetch(url);
-     const data = await response.json();
-     const movies = data.results
+     fetchMovies(category1Url).then(data => {
+          DisplayMovies(category1, data.moviesCategory)
+     })
+     fetchMovies(category2Url).then(data => {
+          DisplayMovies(category2, data.moviesCategory)
+     })
+     fetchMovies(category3Url).then(data => {
+          DisplayMovies(category3, data.moviesCategory)
+     })
+
+}
+
+
+function DisplayMovies(container, movies){
 
      scrollMovies(container)
-   
-     // const bestMovies = document.querySelector("#bestMovie");
-     for (let i = (container === document.querySelector("#bestMovie")) ? 1 : 0; i < movies.length; i++) {
-          // Initialise la variable i à 1 si le conteneur actuel est égal à bestMovies, sinon l'initialise à 0.
 
+     for (let i = 0; i < movies.length; i++) {
           const image = document.createElement('img');
-          image.classList.add("Best_images")
-          image.src = movies[i].image_url
+          image.classList.add("Best_images");
+          image.src = movies[i].image_url;
           container.querySelector(".slider-container").appendChild(image);
-
-          const detailFilm = await fetch(movies[i].url).then(response => response.json())
-          eventInfoMovie(image, detailFilm)
-          
+          eventInfoMovie(image, movies[i])
      }
-    
+
 }
 
 function scrollMovies(container) {
