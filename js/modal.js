@@ -32,22 +32,15 @@ function setupModalListeners(modalDetail){
     const closeModal = document.querySelector("#closeModal")
     const openModal = document.querySelector("#openModal")
 
-    Object.entries(createFilmDetailsObject()).forEach(([selector, property]) => {
-        const select = document.querySelector(selector);
-        select.src = modalDetail[property]
-        select.textContent = modalDetail[property];
-   });
-   showModal();
-
     
-    // detailsButton.addEventListener('click', () => {
-    //     Object.entries(createFilmDetailsObject()).forEach(([selector, property]) => {
-    //         const select = document.querySelector(selector);
-    //         select.src = modalDetail[property]
-    //         select.textContent = modalDetail[property];
-    //    });
-    //    showModal();
-    // });
+    detailsButton.addEventListener('click', () => {
+        Object.entries(createFilmDetailsObject()).forEach(([selector, property]) => {
+            const select = document.querySelector(selector);
+            select.src = modalDetail[property]
+            select.textContent = modalDetail[property];
+       });
+       showModal();
+    });
     
     closeModal.addEventListener('click', hideModal);
     window.addEventListener('click', (event) => {
